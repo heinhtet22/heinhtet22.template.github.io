@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mail Template</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- External CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+<style>
+  .red{
+    background-color: red;
+  }
+</style>
+<body>
+  <!-- SideMenu --> 
+    <div class="sidemenu d-none d-lg-block" id="sidemenu">
+      <ul class="list-inline">
+        <li><a href="#"><img src="image/w3schools.png" alt="" width="60%"></a></li>
+        <li onclick="showSidebar();" class="d-lg-none" style="border-top: 1px solid lightgray;">
+          <a href="#">Close <i class="fas fa-times ms-2"></i></a>
+        </li>
+        <li class="second" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <a href="#">New Message <i class="fas fa-pencil-alt ms-2"></i></a>
+        </li>
+        <li id="inbox" onclick="toggleContent()">
+          <a href="#"><i class="fas fa-inbox"></i> Inbox (3) <i class="fa fa-caret-down ms-2"></i></a>          
+        </li>
+        <div id="content" style="display: none;">
+          <ul class="list-inline">
+            <li onclick="showRightContent('borge');showSidebar();" id="tab">
+              <img src="image/user8.jpg" alt="%"> <span>Borge Refsnes</span>
+              <p>Subject : Remember Me</p>
+              <p>Hello,i just wanted to let you know that i'll be home at...</p>
+            </li>            
+            <li onclick="showRightContent('jane');showSidebar();">
+              <img src="image/user9.png" alt="%"> <span>Jane Doe</span>
+              <p>Lorem inspum dolar amet sit, <br>
+                 consectetur adipiscing elit...
+              </p>
+            </li>
+            <li onclick="showRightContent('john');showSidebar();">
+              <img src="image/user10.png" alt="%"> <span>John Doe</span>
+              <p>Welcome!</p>
+            </li>            
+          </ul>
+        </div>
+        <li><a href="#"><i class="fas fa-paper-plane"></i> Sent</a></li>
+        <li><a href="#"><i class="fas fa-desktop"></i> Drafts</a></li>
+        <li><a href="#"><i class="fas fa-trash"></i> Trash</a></li>
+      </ul>
+    </div>   
+    <!-- Overlay -->
+    <div id="overlay" class="d-none" onclick="showSidebar();"></div>
+    <!-- RightContent      -->
+    <div class="rightcontent">
+       <!-- Top Menu -->
+       <div class="topmenu d-flex justify-content-between mb-4 d-lg-none">
+        <a href="#" id="showsidebar" onclick="showSidebar();"><i class="fa fa-bars"></i></a>
+        <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fas fa-pencil-alt"></i></a>
+       </div>
+      <!-- Borge -->
+      <div id="borge" class="person">
+        <img src="image/user8.jpg" alt="" width="200px" height="200px" style="border-radius: 5px;">
+        <h6 class="text-muted mt-2">Subject : Remember Me</h6>
+        <h5><i class="far fa-clock"></i> From Borge Refsnes, Sep 27, 2015.</h5>
+        <button class="btn btn-light">Reply <i class="fas fa-reply ms-2"></i></button>
+        <button class="btn btn-light">Forward <i class="fas fa-arrow-right ms-2"></i></button>
+        <hr>
+        <p>Hello, i just wanted to let you know that i'll be home at lorem ipsum dolor sit amet, consectetur adipiscing 
+          elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
+          exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non 
+          proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do 
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation 
+          ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore 
+          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo 
+          consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est 
+          laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim 
+          ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </p>
+        <p>Best Regards, <br>
+          Borge Refsnes</p>
+      </div>
+      <!-- Jane Doe -->
+      <div id="jane" class="person">
+        <img src="image/user9.png" alt="" width="200px" height="200px" style="border-radius: 5px;">
+        <h6 class="text-muted mt-2">Subject : None</h6>
+        <h5><i class="far fa-clock"></i> From Jane Doe, Sep 25, 2015.</h5>
+        <button class="btn btn-light">Reply <i class="fas fa-reply ms-2"></i></button>
+        <button class="btn btn-light">Forward <i class="fas fa-arrow-right ms-2"></i></button>
+        <hr>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore 
+          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo 
+          consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est 
+          laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim 
+          ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </p>
+        <p>Forever Yours, <br>
+          Jane</p>
+      </div>
+      <!-- John Doe -->
+      <div id="john" class="person">
+        <img src="image/user10.png" alt="" width="200px" height="200px" style="border-radius: 5px;">
+        <h6 class="text-muted mt-2">Subject : None</h6>
+        <h5><i class="far fa-clock"></i> From John Doe, Sep 23, 2015.</h5>
+        <button class="btn btn-light">Reply <i class="fas fa-reply ms-2"></i></button>
+        <button class="btn btn-light">Forward <i class="fas fa-arrow-right ms-2"></i></button>
+        <hr>
+        <p>Welcomes. <br>
+          That's it!</p>
+      </div>
+    </div>         
+    <!-- Modal  -->
+    <div class="modal scale" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3 class="modal-title" id="exampleModalLabel"><b>Send Mail</b></h3>
+            <a href="#"><i class="fas fa-times" data-bs-dismiss="modal" aria-label="Close"></i></a>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3">
+               <label for="">To</label>
+               <input type="text" class="form-control">
+            </div>
+            <div class="mb-3">
+              <label for="">From</label>
+              <input type="text" class="form-control">
+            </div>
+            <div class="mb-3">
+              <label for="">Subject</label>
+              <input type="text" class="form-control">
+            </div>           
+            <input type="text"class="form-control" placeholder="What's on your mind!" style="height: 150px;">            
+          </div>
+          <div class="modal-footer d-flex justify-content-between">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel <i class="fas fa-times ms-2"></i></button>
+            <button type="button" class="btn btn-success">Send <i class="fas fa-paper-plane ms-2"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+ 
+    
+    <script>
+      
+      // Inbox Function
+        function toggleContent(){
+          var inbox = document.getElementById("inbox");
+          var content = document.getElementById("content");
+
+        var test = content.getAttribute("style");
+        if(test == "display: none;"){
+          content.style.display = "block";
+          inbox.classList.add("red");
+        }
+        else{
+          content.style.display = "none";
+          inbox.classList.remove("red");
+        }
+        }
+        // RightContent Function
+        function showRightContent(id){
+          var i;
+          var x = document.getElementsByClassName("person");
+          for (i = 0; i < x.length; i++) {
+             x[i].style.display = "none";
+          }
+          document.getElementById(id).style.display = "block";
+        }
+        
+        // Sidebar Function
+        function showSidebar(){
+          var sidebar = document.getElementById("sidebar");
+          var sidemenu = document.getElementById("sidemenu");
+          var overlay = document.getElementById("overlay");
+
+          var test1 = overlay.className;
+          if(test1 == "d-none"){
+            sidemenu.classList.add("d-block");
+            sidemenu.classList.remove("d-none","d-lg-block");
+            overlay.classList.add("d-lg-none");
+            overlay.classList.remove("d-none");
+          }
+          else{
+            sidemenu.classList.add("d-none","d-lg-block");
+            sidemenu.classList.remove("d-block");
+            overlay.classList.add("d-none");
+            overlay.classList.remove("d-lg-none");
+          }
+        }
+        showRightContent("borge");
+    </script>
+   
+       
+    <!-- Bootstrap Javascript -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>
